@@ -9,9 +9,10 @@
 import UIKit
 
 class DetailViewController: UIViewController, IndexTransition {
-    func setTitleByIndex(index: Int) {
-        label.text = testSourceData[index]
+    func setTitleByIndex(value: String) {
+        label.text = value
     }
+    
     
     
     @IBOutlet weak var detailTableView: UITableView!

@@ -9,12 +9,12 @@
 import UIKit
 
 protocol IndexTransition {
-    func setTitleByIndex (index : Int)
+    func setTitleByIndex (value : String)
 }
 
 extension IndexTransition {
-    func set (indexPath : IndexPath) {
-        setTitleByIndex(index: indexPath.row)
+    func set (value: String) {
+        setTitleByIndex(value: value)
     }
 }
 
@@ -22,21 +22,28 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: MainTableView!
     
-    let dataService: SourceDataService = SourceDataService()
-    var data = Exoplanets()
-    
+//    let dataService: SourceDataService = SourceDataService()
+//    var data = Exoplanets()
+
+    let dataService: TestSourceDataService = TestSourceDataService()
+    var data : [Rate] = []
+    var count = 0
+
     override func viewDidLoad() {
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
         super.viewDidLoad()
+        
         DispatchQueue.main.async {
             self.dataService.load(complition: { (data) in
                 self.data = data
-                 print("Count = \(self.data.count)")
-                
+                self.count = data.count
+                print("Count = \(self.data.count)")
+                self.mainTableView.reloadData()
+                print("Screen reloaded")
             })
-            self.mainTableView.reloadData()
             
-           
+            
+            
         }
         
 
@@ -57,18 +64,21 @@ class MainViewController: UIViewController {
 
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath)
         if (indexPath.row % 2 == 0) {
-             cell.backgroundColor = UIColor.init(red: 0.9, green: 0.8, blue: 0.8, alpha: 1.0)
+             cell.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         } else {
-            cell.backgroundColor = UIColor.init(red: 0.8, green: 0.9, blue: 0.9, alpha: 1.0)
+            cell.backgroundColor = UIColor.init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
         }
         if let cell = cell as? IndexTransition {
-            cell.set(indexPath: indexPath)
+//            let value = self.data.results[indexPath.row].name
+            let value = data[indexPath.row].txt
+            print ("Cell title \(value)")
+            cell.set(value: value)
         }
     
         return cell

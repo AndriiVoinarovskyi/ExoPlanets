@@ -9,8 +9,8 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell, IndexTransition {
-    func setTitleByIndex(index: Int) {
-        label.text = testSourceData[index]
+    func setTitleByIndex(value: String) {
+        label.text = value
     }
     
     
