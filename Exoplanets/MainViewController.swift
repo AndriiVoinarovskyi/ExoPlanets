@@ -22,9 +22,23 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: MainTableView!
     
+    let dataService: SourceDataService = SourceDataService()
+    var data = Exoplanets()
+    
     override func viewDidLoad() {
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.dataService.load(complition: { (data) in
+                self.data = data
+                 print("Count = \(self.data.count)")
+                
+            })
+            self.mainTableView.reloadData()
+            
+           
+        }
+        
 
         // Do any additional setup after loading the view.
     }

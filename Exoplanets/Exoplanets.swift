@@ -93,95 +93,95 @@ import Foundation
 
 struct Coordinates : Decodable {
     let system: String
-    let right_ascension: Float
+    let right_ascension: Double
     let right_ascension_units: String
-    let declination: Float
+    let declination: Double
     let declination_units: String
     let epoch: Int //2451545
 }
 
 struct Mass : Decodable {
-    let value: Float //19.4,
+    let value: Double //19.4,
     let unit: String //"M_jup",
-    let error_max: Float //1.5,
-    let error_min: Float // 1.5,
+    let error_max: Double //1.5,
+    let error_min: Double // 1.5,
     let bibcode: String //""
 }
 
 struct Radius : Decodable {
-    let value: Float //0.000002,
+    let value: Double //0.000002,
     let unit: String //"R_jup",
-    let error_max: Float //null,
-    let error_min: Float //null,
+    let error_max: Double //null,
+    let error_min: Double //null,
     let bibcode: String //""
 }
 
 struct Inclination : Decodable {
-    let value: Float //138.2,
+    let value: Double //138.2,
     let unit: String //"º",
-    let error_max: Float //0.5,
-    let error_min: Float //0.5,
+    let error_max: Double //0.5,
+    let error_min: Double //0.5,
     let bibcode: String //""
 }
 
 struct Semi_Major_Axis : Decodable {
-    let value: Float //1.29,
+    let value: Double //1.29,
     let unit: String //"AU",
-    let error_max: Float //0.05,
-    let error_min: Float //0.05,
+    let error_max: Double //0.05,
+    let error_min: Double //0.05,
     let bibcode: String //""
 }
 
 struct Orbital_Period : Decodable {
-    let value: Float //326.03,
+    let value: Double //326.03,
     let unit: String //"days",
-    let error_max: Float //0.32,
-    let error_min: Float //0.32,
+    let error_max: Double //0.32,
+    let error_min: Double //0.32,
     let bibcode: String //""
 }
 
 struct Eccentricity : Decodable {
-    let value: Float //0.231,
-    let error_max: Float //0.005,
-    let error_min: Float //0.005,
+    let value: Double //0.231,
+    let error_max: Double //0.005,
+    let error_min: Double //0.005,
     let bibcode: String //""
 }
 
 struct Time_periastron : Decodable {
-    let value: Float //2452899.6,
-    let error_max: Float //1.6,
-    let error_min: Float //1.6,
+    let value: Double //2452899.6,
+    let error_max: Double //1.6,
+    let error_min: Double //1.6,
     let bibcode: String //""
 }
 
 struct Velocity_semiamplitude : Decodable {
-    let value: Float //296.7,
+    let value: Double //296.7,
     let unit: String //"m/s",
-    let error_max: Float //5.6,
-    let error_min: Float //5.6,
+    let error_max: Double //5.6,
+    let error_min: Double //5.6,
     let bibcode: String //""
 }
 
 struct Calculated_temperature : Decodable {
-    let value: Float
+    let value: Double
     let unit: String
-    let error_max: Float
-    let error_min: Float
+    let error_max: Double
+    let error_min: Double
     let bibcode: String
 }
 
 struct Geometric_albedo : Decodable {
-    let value: Float
-    let error_max: Float
-    let error_min: Float
+    let value: Double
+    let error_max: Double
+    let error_min: Double
     let bibcode: String
 }
 
 struct Surface_gravity : Decodable {
-    let value: Float
+    let value: Double
     let unit: String
-    let error_max: Float
-    let error_min: Float
+    let error_max: Double
+    let error_min: Double
     let bibcode: String
 }
 
@@ -217,8 +217,8 @@ struct Planet : Decodable {
 }
 
 struct Exoplanets : Decodable {
-    let count: Int
-    let next: String
-    let previous: String
-    let results: [Planet]
+    let count: Int = 0
+    let next: String = "Initial Data"
+    let previous: String = "Initial Data"
+    let results: [Planet] = []
 }

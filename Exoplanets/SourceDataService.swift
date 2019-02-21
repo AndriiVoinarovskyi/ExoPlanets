@@ -8,21 +8,28 @@
 
 import Foundation
 
-let baseLink = "https://api.arcsecond.io/exoplanets/"
+let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=1"
 
-class SurceDataService {
+class SourceDataService {
     func load(complition : @escaping (Exoplanets)->()) {
-        guard let url = URL(string: baseLink) else { print ("Wrong URL"); return }
-        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
+        guard let url = URL(string: baseLink) else {
+            print("Wrong URL")
+            complition (Exoplanets())
+            return
+        }
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else { print("Wrong Data"); return }
-            let decoder = JSONDecoder()
-            let item = try? decoder.decode(Exoplanets.self, from: data)
-            complition((item ?? nil)!)
+            DispatchQueue.main.async {
+                guard let data = data else { print("Wrong Data"); complition (Exoplanets()); return }
+                let decoder = JSONDecoder()
+                let item = try? decoder.decode(Exoplanets.self, from: data)
+                complition(item ?? Exoplanets())
+                print("\(item?.next ?? "-1")")
+            }
         }
         task.resume()
     }
