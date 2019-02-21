@@ -79,7 +79,7 @@ extension MainViewController : UITableViewDataSource {
             cell.backgroundColor = UIColor.init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
         }
         if let cell = cell as? IndexTransition {
-//            let value = data[indexPath.row]
+//            let value = self.data.results[indexPath.row]
             let value = self.data[indexPath.row]
 
             print ("Cell title \(value)")
