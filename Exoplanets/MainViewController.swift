@@ -9,26 +9,30 @@
 import UIKit
 
 protocol IndexTransition {
-    func setTitleByIndex (value : String)
+    func setTitleByIndex (value : Rate)
+//    func setTitleByIndex (value : Planet)
+
 }
 
 extension IndexTransition {
-    func set (value: String) {
+    func set (value: Rate) {
+//    func set (value: Planet) {
         setTitleByIndex(value: value)
     }
 }
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var mainTableView: MainTableView!
     
 //    let dataService: SourceDataService = SourceDataService()
 //    var data = Exoplanets()
-
+    
     let dataService: TestSourceDataService = TestSourceDataService()
     var data : [Rate] = []
-    var count = 0
 
+    var count = 0
+    
     override func viewDidLoad() {
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
         super.viewDidLoad()
@@ -46,20 +50,20 @@ class MainViewController: UIViewController {
             
         }
         
-
+        
         // Do any additional setup after loading the view.
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension MainViewController : UITableViewDataSource {
@@ -70,17 +74,18 @@ extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath)
         if (indexPath.row % 2 == 0) {
-             cell.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+            cell.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         } else {
             cell.backgroundColor = UIColor.init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
         }
         if let cell = cell as? IndexTransition {
-//            let value = self.data.results[indexPath.row].name
-            let value = data[indexPath.row].txt
+//            let value = data[indexPath.row]
+            let value = self.data[indexPath.row]
+
             print ("Cell title \(value)")
             cell.set(value: value)
         }
-    
+        
         return cell
-}
+    }
 }

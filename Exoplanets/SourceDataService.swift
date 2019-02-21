@@ -26,7 +26,7 @@ class SourceDataService {
             DispatchQueue.main.async {
                 guard let data = data else { print("Wrong Data"); complition (Exoplanets()); return }
                 let decoder = JSONDecoder()
-                let item = try? decoder.decode(Exoplanets.self, from: data)
+                let item = try? decoder.decode(Exoplanets.self, from: data) // Error here
                 complition(item ?? Exoplanets())
                 print("\(item?.next ?? "-1")")
             }

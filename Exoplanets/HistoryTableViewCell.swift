@@ -9,10 +9,13 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell, IndexTransition {
-    func setTitleByIndex(value: String) {
-        label.text = value
+    func setTitleByIndex(value: Rate) {
+        label.text = value.txt
     }
-    
+//    func setTitleByIndex(value: Planet) {
+//        label.text = value.name
+//    }
+
     
 
     @IBOutlet weak var label: UILabel!
