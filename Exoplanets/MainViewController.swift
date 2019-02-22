@@ -54,6 +54,14 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = mainTableView.indexPathForSelectedRow {
+                let dvc = segue.destination as! DetailViewController
+                dvc.item = data[indexPath.row]
+            }
+        }
+    }
     /*
      // MARK: - Navigation
      
@@ -74,9 +82,9 @@ extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath)
         if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+            cell.backgroundColor = #colorLiteral(red: 0.2615792751, green: 0.2857673466, blue: 0.6650569439, alpha: 1)
         } else {
-            cell.backgroundColor = UIColor.init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
+            cell.backgroundColor = #colorLiteral(red: 0.2609414458, green: 0.2709193528, blue: 0.4761442542, alpha: 1)
         }
         if let cell = cell as? IndexTransition {
 //            let value = self.data.results[indexPath.row]
@@ -88,4 +96,7 @@ extension MainViewController : UITableViewDataSource {
         
         return cell
     }
+    
+    
 }
+

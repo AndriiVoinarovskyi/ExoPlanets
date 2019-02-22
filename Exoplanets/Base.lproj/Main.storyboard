@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Exoplanets-->
         <scene sceneID="Wvv-9e-QMZ">
             <objects>
                 <viewController id="5Dv-RG-ZCA" customClass="MainViewController" customModule="Exoplanets" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,10 +34,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTW-MO-ZFh">
-                                                    <rect key="frame" x="6" y="6" width="308" height="32"/>
+                                                    <rect key="frame" x="12" y="6" width="302" height="32"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -46,11 +46,11 @@
                                             <constraint firstAttribute="bottom" secondItem="pTW-MO-ZFh" secondAttribute="bottom" constant="6" id="Dxr-bO-cm0"/>
                                             <constraint firstItem="pTW-MO-ZFh" firstAttribute="top" secondItem="OLV-Jn-miB" secondAttribute="top" constant="6" id="MUU-Ex-V5u"/>
                                             <constraint firstAttribute="trailing" secondItem="pTW-MO-ZFh" secondAttribute="trailing" constant="6" id="TRc-BB-qcv"/>
-                                            <constraint firstItem="pTW-MO-ZFh" firstAttribute="leading" secondItem="OLV-Jn-miB" secondAttribute="leading" constant="6" id="zMQ-UB-jfy"/>
+                                            <constraint firstItem="pTW-MO-ZFh" firstAttribute="leading" secondItem="OLV-Jn-miB" secondAttribute="leading" constant="12" id="zMQ-UB-jfy"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="label" destination="pTW-MO-ZFh" id="hUt-6l-YtX"/>
-                                            <segue destination="sxs-6C-ckc" kind="show" id="oFN-Ez-V7B"/>
+                                            <segue destination="sxs-6C-ckc" kind="show" identifier="detailSegue" id="oFN-Ez-V7B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uef-sd-LFX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eYg-rd-L5D"/>
+                    <navigationItem key="navigationItem" title="Exoplanets" id="eYg-rd-L5D"/>
                     <connections>
                         <outlet property="mainTableView" destination="qxv-Ew-QKo" id="NRj-3C-xh5"/>
                     </connections>
@@ -109,7 +109,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PYX-Dk-uAi">
                                 <rect key="frame" x="0.0" y="220" width="320" height="254"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjM-u7-Zb2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjM-u7-Zb2">
                                         <rect key="frame" x="139" y="0.0" width="42" height="20.5"/>
                                         <color key="backgroundColor" red="0.071174221920000003" green="0.46229355570000003" blue="0.3724796702" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>

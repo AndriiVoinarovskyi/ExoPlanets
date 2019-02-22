@@ -25,10 +25,11 @@ class SourceDataService {
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data else { print("Wrong Data"); complition (Exoplanets()); return }
+                print("Data = \(data)")
                 let decoder = JSONDecoder()
                 let item = try? decoder.decode(Exoplanets.self, from: data) // Error here
                 complition(item ?? Exoplanets())
-                print("\(item?.next ?? "-1")")
+                print("Load Data: next = \(item?.next ?? "")")
             }
         }
         task.resume()

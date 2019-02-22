@@ -9,10 +9,12 @@
 import UIKit
 
 class DetailViewController: UIViewController, IndexTransition {
+
     func setTitleByIndex(value: Rate) {
         self.label.text = "Date: \(value.exchangedate) \(value.txt) = \(value.rate)"
     }
-//    func setTitleByIndex(value: Planet) {
+
+    //    func setTitleByIndex(value: Planet) {
 //        self.label.text = "Name: \(value.name) mass = \(value.mass)"
 //    }
 
@@ -21,15 +23,19 @@ class DetailViewController: UIViewController, IndexTransition {
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var orbitView: UIView!
-//    @IBOutlet weak var backButton: UIButton!
-//
-//    @IBAction func backButton(_ sender: Any) {
-//        self.show(MainViewController(), sender: (Any).self)
+    
+    var item = Rate()
+//    var item = Planet()
+    //    @IBOutlet weak var backButton: UIButton!
+    //
+    //    @IBAction func backButton(_ sender: Any) {
+    //        self.show(MainViewController(), sender: (Any).self)
 //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         detailTableView.tableFooterView = UIView(frame: CGRect.zero)
+        setTitleByIndex(value: item)
         
 
         // Do any additional setup after loading the view.

@@ -18,4 +18,12 @@ struct Rate: Decodable {
     let rate: Double
     let cc: String
     let exchangedate: String
+    
+    init() {
+        r030 = -1
+        txt = ""
+        rate = -1.0
+        cc = ""
+        exchangedate = ""
+    }
 }

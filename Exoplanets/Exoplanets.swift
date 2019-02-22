@@ -98,6 +98,16 @@ struct Coordinates : Decodable {
     let declination: Double
     let declination_units: String
     let epoch: Int //2451545
+    
+    init () {
+        system = ""
+        right_ascension =  -1.0
+        right_ascension_units = ""
+        declination = -1.0
+        declination_units = ""
+        epoch = 0
+    }
+    
 }
 
 struct Mass : Decodable {
@@ -106,6 +116,15 @@ struct Mass : Decodable {
     let error_max: Double //1.5,
     let error_min: Double // 1.5,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //19.4,
+        unit = "" //"M_jup",
+        error_max = -1.0 //1.5,
+        error_min = -1.0 // 1.5,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Radius : Decodable {
@@ -114,6 +133,15 @@ struct Radius : Decodable {
     let error_max: Double //null,
     let error_min: Double //null,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //0.000002,
+        unit = "" //"R_jup",
+        error_max = -1.0 //null,
+        error_min = -1.0 //null,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Inclination : Decodable {
@@ -122,6 +150,15 @@ struct Inclination : Decodable {
     let error_max: Double //0.5,
     let error_min: Double //0.5,
     let bibcode: String //""
+    
+    
+    init () {
+        value = -1.0 //138.2,
+        unit = "" //"º",
+        error_max = -1.0 //0.5,
+        error_min = -1.0 //0.5,
+        bibcode = "" //""
+    }
 }
 
 struct Semi_Major_Axis : Decodable {
@@ -130,6 +167,15 @@ struct Semi_Major_Axis : Decodable {
     let error_max: Double //0.05,
     let error_min: Double //0.05,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //1.29,
+        unit = "" //"AU",
+        error_max = -1.0 //0.05,
+        error_min = -1.0 //0.05,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Orbital_Period : Decodable {
@@ -138,6 +184,15 @@ struct Orbital_Period : Decodable {
     let error_max: Double //0.32,
     let error_min: Double //0.32,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //326.03,
+        unit = "" //"days",
+        error_max = -1.0 //0.32,
+        error_min = -1.0 //0.32,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Eccentricity : Decodable {
@@ -145,6 +200,14 @@ struct Eccentricity : Decodable {
     let error_max: Double //0.005,
     let error_min: Double //0.005,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //0.231,
+        error_max = -1.0 //0.005,
+        error_min = -1.0 //0.005,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Time_periastron : Decodable {
@@ -152,6 +215,14 @@ struct Time_periastron : Decodable {
     let error_max: Double //1.6,
     let error_min: Double //1.6,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //0.231,
+        error_max = -1.0 //0.005,
+        error_min = -1.0 //0.005,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Velocity_semiamplitude : Decodable {
@@ -160,6 +231,15 @@ struct Velocity_semiamplitude : Decodable {
     let error_max: Double //5.6,
     let error_min: Double //5.6,
     let bibcode: String //""
+    
+    init () {
+        value = -1.0 //0.231,
+        unit = ""
+        error_max = -1.0 //0.005,
+        error_min = -1.0 //0.005,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Calculated_temperature : Decodable {
@@ -168,6 +248,14 @@ struct Calculated_temperature : Decodable {
     let error_max: Double
     let error_min: Double
     let bibcode: String
+    
+    init () {
+        value = -1.0 //0.231,
+        unit = ""
+        error_max = -1.0 //0.005,
+        error_min = -1.0 //0.005,
+        bibcode = "" //""
+    }
 }
 
 struct Geometric_albedo : Decodable {
@@ -175,6 +263,14 @@ struct Geometric_albedo : Decodable {
     let error_max: Double
     let error_min: Double
     let bibcode: String
+    
+    init () {
+        value = -1.0 //0.231,
+        error_max = -1.0 //0.005,
+        error_min = -1.0 //0.005,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Surface_gravity : Decodable {
@@ -183,6 +279,15 @@ struct Surface_gravity : Decodable {
     let error_max: Double
     let error_min: Double
     let bibcode: String
+    
+    init () {
+        value = -1.0 //0.231,
+        unit = ""
+        error_max = -1.0 //0.005,
+        error_min = -1.0 //0.005,
+        bibcode = "" //""
+    }
+    
 }
 
 struct Planet : Decodable {
@@ -214,11 +319,50 @@ struct Planet : Decodable {
     let mass_detection_method: String //"Radial Velocity",
     let radius_detection_method: String //"Radial Velocity",
     let parent_star: String //"11 Com"
+    
+    init () {
+        name = ""
+        coordinates = Coordinates()
+        mass = Mass ()
+        radius = Radius() //null,
+        inclination = Inclination() //null,
+        semi_major_axis = Semi_Major_Axis()
+        orbital_period = Orbital_Period()
+        eccentricity =  Eccentricity()
+        omega_angle = Inclination()
+        anomaly_angle = Inclination() //null,
+        lambda_angle = Inclination() //null,
+        time_periastron = Time_periastron()
+        time_conjonction = Time_periastron() //null,
+        angular_distance = Inclination() //null,
+        tzero_primary_transit = Time_periastron() //null,
+        tzero_secondary_transit = Time_periastron() //null,
+        impact_parameter = Inclination() //null,
+        tzero_radial_velocity = Time_periastron() //null,
+        velocity_semiamplitude = Velocity_semiamplitude()
+        calculated_temperature = Calculated_temperature() //null,
+        measured_temperature = Calculated_temperature() //null,
+        hottest_point_longitude = Inclination() //null,
+        geometric_albedo = Geometric_albedo() //null,
+        surface_gravity = Surface_gravity() //null,
+        detection_method = "" //"Radial Velocity",
+        mass_detection_method = "" //"Radial Velocity",
+        radius_detection_method = "" //"Radial Velocity",
+        parent_star = ""//"11 Com"
+    }
+    
 }
 
 struct Exoplanets : Decodable {
-    let count: Int = 0
-    let next: String = "Initial Data"
-    let previous: String = "Initial Data"
-    let results: [Planet] = []
+    let count: Int
+    let next: String
+    let previous: String
+    let results: [Planet]
+    
+    init () {
+        count = -1
+        next = "Initial Data"
+        previous = "Initial Data"
+        results = []
+    }
 }

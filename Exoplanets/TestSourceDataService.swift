@@ -25,10 +25,11 @@ class TestSourceDataService {
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data else { print("Wrong Data"); complition ([]); return }
+                print("Data = \(data)")
                 let decoder = JSONDecoder()
                 let item = try? decoder.decode([Rate].self, from: data)
                 complition(item ?? [])
-                print("\(item?.count ?? -1)")
+                print("Load Data: count = \(item?.count ?? -1)")
             }
         }
         task.resume()
