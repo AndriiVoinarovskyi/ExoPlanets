@@ -40,8 +40,8 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
             self.dataService.load(complition: { (data) in
                 self.data = data
-                self.count = data.count
-                print("Count = \(self.data.count)")
+                self.count = data.results?.count ?? -1
+                print("Count = \(self.data.count ?? -1)")
                 self.mainTableView.reloadData()
                 print("Screen reloaded")
             })
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = mainTableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! DetailViewController
-                dvc.item = data.results[indexPath.row]
+                dvc.item = data.results![indexPath.row]
             }
         }
     }
@@ -87,7 +87,7 @@ extension MainViewController : UITableViewDataSource {
             cell.backgroundColor = #colorLiteral(red: 0.2609414458, green: 0.2709193528, blue: 0.4761442542, alpha: 1)
         }
         if let cell = cell as? IndexTransition {
-            let value = self.data.results[indexPath.row]
+            let value = self.data.results![indexPath.row]
 //            let value = self.data[indexPath.row]
 
             print ("Cell title \(value)")

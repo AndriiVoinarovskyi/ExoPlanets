@@ -15,7 +15,7 @@ class DetailViewController: UIViewController, IndexTransition {
 //    }
 
         func setTitleByIndex(value: Planet) {
-        self.label.text = "Name: \(value.name) mass = \(value.mass)"
+            self.label.text = "Name: \(value.name ?? "") mass = \(value.mass?.value ?? -1.0)"
     }
 
     

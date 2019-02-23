@@ -92,12 +92,12 @@ import Foundation
 //    },
 
 struct Coordinates : Decodable {
-    let system: String
-    let right_ascension: Double
-    let right_ascension_units: String
-    let declination: Double
-    let declination_units: String
-    let epoch: Int //2451545
+    let system: String?
+    let right_ascension: Double?
+    let right_ascension_units: String?
+    let declination: Double?
+    let declination_units: String?
+    let epoch: Int? //2451545
     
     init () {
         system = ""
@@ -111,11 +111,11 @@ struct Coordinates : Decodable {
 }
 
 struct Mass : Decodable {
-    let value: Double //19.4,
-    let unit: String //"M_jup",
-    let error_max: Double //1.5,
-    let error_min: Double // 1.5,
-    let bibcode: String //""
+    let value: Double? //19.4,
+    let unit: String? //"M_jup",
+    let error_max: Double? //1.5,
+    let error_min: Double? // 1.5,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //19.4,
@@ -128,11 +128,11 @@ struct Mass : Decodable {
 }
 
 struct Radius : Decodable {
-    let value: Double //0.000002,
-    let unit: String //"R_jup",
-    let error_max: Double //null,
-    let error_min: Double //null,
-    let bibcode: String //""
+    let value: Double? //0.000002,
+    let unit: String? //"R_jup",
+    let error_max: Double? //null,
+    let error_min: Double? //null,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //0.000002,
@@ -145,11 +145,11 @@ struct Radius : Decodable {
 }
 
 struct Inclination : Decodable {
-    let value: Double //138.2,
-    let unit: String //"º",
-    let error_max: Double //0.5,
-    let error_min: Double //0.5,
-    let bibcode: String //""
+    let value: Double? //138.2,
+    let unit: String? //"º",
+    let error_max: Double? //0.5,
+    let error_min: Double? //0.5,
+    let bibcode: String? //""
     
     
     init () {
@@ -162,11 +162,11 @@ struct Inclination : Decodable {
 }
 
 struct Semi_Major_Axis : Decodable {
-    let value: Double //1.29,
-    let unit: String //"AU",
-    let error_max: Double //0.05,
-    let error_min: Double //0.05,
-    let bibcode: String //""
+    let value: Double? //1.29,
+    let unit: String? //"AU",
+    let error_max: Double? //0.05,
+    let error_min: Double? //0.05,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //1.29,
@@ -179,11 +179,11 @@ struct Semi_Major_Axis : Decodable {
 }
 
 struct Orbital_Period : Decodable {
-    let value: Double //326.03,
-    let unit: String //"days",
-    let error_max: Double //0.32,
-    let error_min: Double //0.32,
-    let bibcode: String //""
+    let value: Double? //326.03,
+    let unit: String? //"days",
+    let error_max: Double? //0.32,
+    let error_min: Double? //0.32,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //326.03,
@@ -196,10 +196,10 @@ struct Orbital_Period : Decodable {
 }
 
 struct Eccentricity : Decodable {
-    let value: Double //0.231,
-    let error_max: Double //0.005,
-    let error_min: Double //0.005,
-    let bibcode: String //""
+    let value: Double? //0.231,
+    let error_max: Double? //0.005,
+    let error_min: Double? //0.005,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //0.231,
@@ -211,10 +211,10 @@ struct Eccentricity : Decodable {
 }
 
 struct Time_periastron : Decodable {
-    let value: Double //2452899.6,
-    let error_max: Double //1.6,
-    let error_min: Double //1.6,
-    let bibcode: String //""
+    let value: Double? //2452899.6,
+    let error_max: Double? //1.6,
+    let error_min: Double? //1.6,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //0.231,
@@ -226,11 +226,11 @@ struct Time_periastron : Decodable {
 }
 
 struct Velocity_semiamplitude : Decodable {
-    let value: Double //296.7,
-    let unit: String //"m/s",
-    let error_max: Double //5.6,
-    let error_min: Double //5.6,
-    let bibcode: String //""
+    let value: Double? //296.7,
+    let unit: String? //"m/s",
+    let error_max: Double? //5.6,
+    let error_min: Double? //5.6,
+    let bibcode: String? //""
     
     init () {
         value = -1.0 //0.231,
@@ -243,11 +243,11 @@ struct Velocity_semiamplitude : Decodable {
 }
 
 struct Calculated_temperature : Decodable {
-    let value: Double
-    let unit: String
-    let error_max: Double
-    let error_min: Double
-    let bibcode: String
+    let value: Double?
+    let unit: String?
+    let error_max: Double?
+    let error_min: Double?
+    let bibcode: String?
     
     init () {
         value = -1.0 //0.231,
@@ -259,10 +259,10 @@ struct Calculated_temperature : Decodable {
 }
 
 struct Geometric_albedo : Decodable {
-    let value: Double
-    let error_max: Double
-    let error_min: Double
-    let bibcode: String
+    let value: Double?
+    let error_max: Double?
+    let error_min: Double?
+    let bibcode: String?
     
     init () {
         value = -1.0 //0.231,
@@ -274,11 +274,11 @@ struct Geometric_albedo : Decodable {
 }
 
 struct Surface_gravity : Decodable {
-    let value: Double
-    let unit: String
-    let error_max: Double
-    let error_min: Double
-    let bibcode: String
+    let value: Double?
+    let unit: String?
+    let error_max: Double?
+    let error_min: Double?
+    let bibcode: String?
     
     init () {
         value = -1.0 //0.231,
@@ -291,34 +291,34 @@ struct Surface_gravity : Decodable {
 }
 
 struct Planet : Decodable {
-    let name: String
-    let coordinates: Coordinates
-    let mass: Mass
-    let radius: Radius //null,
-    let inclination: Inclination //null,
-    let semi_major_axis: Semi_Major_Axis
-    let orbital_period: Orbital_Period
-    let eccentricity: Eccentricity
-    let omega_angle: Inclination
-    let anomaly_angle: Inclination //null,
-    let lambda_angle: Inclination //null,
-    let time_periastron: Time_periastron
-    let time_conjonction: Time_periastron //null,
-    let angular_distance: Inclination //null,
-    let tzero_primary_transit: Time_periastron //null,
-    let tzero_secondary_transit: Time_periastron //null,
-    let impact_parameter: Inclination //null,
-    let tzero_radial_velocity: Time_periastron //null,
-    let velocity_semiamplitude: Velocity_semiamplitude
-    let calculated_temperature: Calculated_temperature //null,
-    let measured_temperature: Calculated_temperature //null,
-    let hottest_point_longitude: Inclination //null,
-    let geometric_albedo: Geometric_albedo //null,
-    let surface_gravity: Surface_gravity //null,
-    let detection_method: String //"Radial Velocity",
-    let mass_detection_method: String //"Radial Velocity",
-    let radius_detection_method: String //"Radial Velocity",
-    let parent_star: String //"11 Com"
+    let name: String?
+    let coordinates: Coordinates?
+    let mass: Mass?
+    let radius: Radius? //null,
+    let inclination: Inclination? //null,
+    let semi_major_axis: Semi_Major_Axis?
+    let orbital_period: Orbital_Period?
+    let eccentricity: Eccentricity?
+    let omega_angle: Inclination?
+    let anomaly_angle: Inclination? //null,
+    let lambda_angle: Inclination? //null,
+    let time_periastron: Time_periastron?
+    let time_conjonction: Time_periastron? //null,
+    let angular_distance: Inclination? //null,
+    let tzero_primary_transit: Time_periastron? //null,
+    let tzero_secondary_transit: Time_periastron? //null,
+    let impact_parameter: Inclination? //null,
+    let tzero_radial_velocity: Time_periastron? //null,
+    let velocity_semiamplitude: Velocity_semiamplitude?
+    let calculated_temperature: Calculated_temperature? //null,
+    let measured_temperature: Calculated_temperature? //null,
+    let hottest_point_longitude: Inclination? //null,
+    let geometric_albedo: Geometric_albedo? //null,
+    let surface_gravity: Surface_gravity? //null,
+    let detection_method: String? //"Radial Velocity",
+    let mass_detection_method: String? //"Radial Velocity",
+    let radius_detection_method: String? //"Radial Velocity",
+    let parent_star: String? //"11 Com"
     
     init () {
         name = ""
@@ -354,10 +354,10 @@ struct Planet : Decodable {
 }
 
 struct Exoplanets : Decodable {
-    let count: Int
-    let next: String
-    let previous: String
-    let results: [Planet]
+    let count: Int?
+    let next: String?
+    let previous: String?
+    let results: [Planet]?
     
     init () {
         count = -1
