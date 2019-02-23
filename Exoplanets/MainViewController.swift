@@ -94,7 +94,7 @@ extension MainViewController : UITableViewDataSource {
             cell.set(value: value)
         }
         
-        return cell
+        return cell 
     }
     
     
