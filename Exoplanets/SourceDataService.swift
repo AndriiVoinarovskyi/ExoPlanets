@@ -26,10 +26,14 @@ class SourceDataService {
             DispatchQueue.main.async {
                 guard let data = data else { print("Wrong Data"); complition (Exoplanets()); return }
                 print("Data = \(data)")
+                print("JSON String: \(String(describing: String(data: data, encoding: .utf8)))")
                 let decoder = JSONDecoder()
-                let item = try? decoder.decode(Exoplanets.self, from: data) // Error here
-                complition(item ?? Exoplanets())
-                print("Load Data: next = \(item?.next ?? "")")
+                do {
+                    let item = try decoder.decode(Exoplanets.self, from: data) // Error here
+                    complition(item)
+                } catch { print(error)}
+                
+//                print("Load Data: next = \(item?.next ?? "")")
             }
         }
         task.resume()
