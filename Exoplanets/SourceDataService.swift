@@ -8,7 +8,7 @@
 
 import Foundation
 
-let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=1"
+let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=10"
 
 class SourceDataService {
     func load(complition : @escaping (Exoplanets)->()) {
@@ -33,7 +33,7 @@ class SourceDataService {
                     complition(item)
                 } catch { print(error)}
                 
-//                print("Load Data: next = \(item?.next ?? "")") 
+//                print("Load Data: next = \(item?.next ?? "")")
             }
         }
         task.resume()
