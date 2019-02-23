@@ -10,13 +10,13 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell, IndexTransition {
 
-    func setTitleByIndex(value: Rate) {
-        label.text = value.txt
-    }
-
-    //    func setTitleByIndex(value: Planet) {
-//        label.text = value.name
+//    func setTitleByIndex(value: Rate) {
+//        label.text = value.txt
 //    }
+
+        func setTitleByIndex(value: Planet) {
+        label.text = value.name
+    }
 
     
 

@@ -9,14 +9,14 @@
 import UIKit
 
 protocol IndexTransition {
-    func setTitleByIndex (value : Rate)
-//    func setTitleByIndex (value : Planet)
+//    func setTitleByIndex (value : Rate)
+    func setTitleByIndex (value : Planet)
 
 }
 
 extension IndexTransition {
-    func set (value: Rate) {
-//    func set (value: Planet) {
+//    func set (value: Rate) {
+    func set (value: Planet) {
         setTitleByIndex(value: value)
     }
 }
@@ -25,11 +25,11 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var mainTableView: MainTableView!
     
-//    let dataService: SourceDataService = SourceDataService()
-//    var data = Exoplanets()
+    let dataService: SourceDataService = SourceDataService()
+    var data = Exoplanets()
     
-    let dataService: TestSourceDataService = TestSourceDataService()
-    var data : [Rate] = []
+//    let dataService: TestSourceDataService = TestSourceDataService()
+//    var data : [Rate] = []
 
     var count = 0
     
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = mainTableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! DetailViewController
-                dvc.item = data[indexPath.row]
+                dvc.item = data.results[indexPath.row]
             }
         }
     }
@@ -87,8 +87,8 @@ extension MainViewController : UITableViewDataSource {
             cell.backgroundColor = #colorLiteral(red: 0.2609414458, green: 0.2709193528, blue: 0.4761442542, alpha: 1)
         }
         if let cell = cell as? IndexTransition {
-//            let value = self.data.results[indexPath.row]
-            let value = self.data[indexPath.row]
+            let value = self.data.results[indexPath.row]
+//            let value = self.data[indexPath.row]
 
             print ("Cell title \(value)")
             cell.set(value: value)
