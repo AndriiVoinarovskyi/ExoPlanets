@@ -36,8 +36,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
         super.viewDidLoad()
-        
-        DispatchQueue.main.async {
+
             self.dataService.load(complition: { (data) in
                 self.data = data
                 self.count = data.results?.count ?? -1
@@ -45,10 +44,6 @@ class MainViewController: UIViewController {
                 self.mainTableView.reloadData()
                 print("Screen reloaded")
             })
-            
-            
-            
-        }
         
         
         // Do any additional setup after loading the view.
@@ -86,6 +81,7 @@ extension MainViewController : UITableViewDataSource {
         } else {
             cell.backgroundColor = #colorLiteral(red: 0.2609414458, green: 0.2709193528, blue: 0.4761442542, alpha: 1)
         }
+        cell.selectionStyle = .none
         if let cell = cell as? IndexTransition {
             let value = self.data.results![indexPath.row]
 //            let value = self.data[indexPath.row]

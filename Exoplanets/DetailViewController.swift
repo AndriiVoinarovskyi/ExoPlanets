@@ -8,24 +8,34 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, IndexTransition {
+protocol DetailInfoTransfer {
+    func setDetails (item: Planet)
+}
+
+extension DetailInfoTransfer {
+    func set(item: Planet) {
+        setDetails(item: item)
+    }
+}
+
+class DetailViewController: UIViewController {
 
 //    func setTitleByIndex(value: Rate) {
 //        self.label.text = "Date: \(value.exchangedate) \(value.txt) = \(value.rate)"
 //    }
 
-        func setTitleByIndex(value: Planet) {
-            self.label.text = "Name: \(value.name ?? "") mass = \(value.mass?.value ?? -1.0)"
-    }
+//        func setTitleByIndex(value: Planet) {
+//            self.label.text = "Name: \(value.name ?? "") mass = \(value.mass?.value ?? -1.0)"
+//    }
 
     
     
     @IBOutlet weak var detailTableView: UITableView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var orbitView: UIView!
+    @IBOutlet weak var orbitView: OrbitView!
     
 //    var item = Rate()
     var item = Planet()
+    
 //        @IBOutlet weak var backButton: UIButton!
 //
 //        @IBAction func backButton(_ sender: Any) {
@@ -35,13 +45,15 @@ class DetailViewController: UIViewController, IndexTransition {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailTableView.tableFooterView = UIView(frame: CGRect.zero)
-        setTitleByIndex(value: item)
+        orbitView.drawOrbit(eccentricity: item.eccentricity?.value ?? 0)
+        
+        
+        
+//        setTitleByIndex(value: item)
         
 
         // Do any additional setup after loading the view.
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -51,5 +63,24 @@ class DetailViewController: UIViewController, IndexTransition {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension DetailViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath)
+        tableView.rowHeight = 700
+        cell.selectionStyle = .none
+        if let cell = cell as? DetailInfoTransfer {
+            print("Item = \(item)")
+            cell.set(item: item)
+            
+        }
+        return cell
+    }
 
 }
