@@ -9,13 +9,13 @@
 import UIKit
 
 protocol IndexTransition {
-//    func setTitleByIndex (value : Rate)
+    //    func setTitleByIndex (value : Rate)
     func setTitleByIndex (value : Planet)
-
+    
 }
 
 extension IndexTransition {
-//    func set (value: Rate) {
+    //    func set (value: Rate) {
     func set (value: Planet) {
         setTitleByIndex(value: value)
     }
@@ -24,26 +24,43 @@ extension IndexTransition {
 class MainViewController: UIViewController {
     
     @IBOutlet weak var mainTableView: MainTableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var retreavingDataLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     
     let dataService: SourceDataService = SourceDataService()
     var data = Exoplanets()
     
-//    let dataService: TestSourceDataService = TestSourceDataService()
-//    var data : [Rate] = []
-
+    //    let dataService: TestSourceDataService = TestSourceDataService()
+    //    var data : [Rate] = []
+    
     var count = 0
     
     override func viewDidLoad() {
-        mainTableView.tableFooterView = UIView(frame: CGRect.zero)
         super.viewDidLoad()
-
-            self.dataService.load(complition: { (data) in
-                self.data = data
-                self.count = data.results?.count ?? -1
-                print("Count = \(self.data.count ?? -1)")
-                self.mainTableView.reloadData()
-                print("Screen reloaded")
-            })
+        self.title = "Space Odyssey"
+        
+        
+        activityIndicator.hidesWhenStopped = true
+        retreavingDataLabel.isHidden = false
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+        
+        mainTableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        
+        self.dataService.load(complition: { (data) in
+            self.data = data
+            self.count = data.results?.count ?? -1
+            print("Count = \(self.data.count ?? -1)")
+            self.mainTableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            self.retreavingDataLabel.isHidden = true
+            print("Screen reloaded")
+        })
         
         
         // Do any additional setup after loading the view.
@@ -77,15 +94,15 @@ extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath)
         if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = #colorLiteral(red: 0.2615792751, green: 0.2857673466, blue: 0.6650569439, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.0009274088661, green: 0.02324046195, blue: 0.2609408498, alpha: 1)
         } else {
-            cell.backgroundColor = #colorLiteral(red: 0.2609414458, green: 0.2709193528, blue: 0.4761442542, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.003229425987, green: 0.07242881507, blue: 0.4763471484, alpha: 1)
         }
         cell.selectionStyle = .none
         if let cell = cell as? IndexTransition {
             let value = self.data.results![indexPath.row]
-//            let value = self.data[indexPath.row]
-
+            //            let value = self.data[indexPath.row]
+            
             print ("Cell title \(value)")
             cell.set(value: value)
         }

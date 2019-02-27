@@ -55,9 +55,9 @@ class OrbitView: UIView {
     func drawBackgroundStars(using context: CGContext) {
         let number = Int.random(in: 100...1000)
         for _ in 0...number {
-            context.addArc(center: randomPoint(using: context), radius: 1.0, startAngle: CGFloat(0).degreeToRadians, endAngle: CGFloat(360).degreeToRadians, clockwise: false)
+            context.addArc(center: randomPoint(using: context), radius: CGFloat.random(in: 0.5...1.5), startAngle: CGFloat(0).degreeToRadians, endAngle: CGFloat(360).degreeToRadians, clockwise: false)
             context.setLineCap(.round)
-            context.setFillColor(red: CGFloat.random(in: 0.5...1), green: CGFloat.random(in: 0.5...1), blue: CGFloat.random(in: 0.5...1), alpha: 1)
+            context.setFillColor(red: CGFloat.random(in: 0.7...1), green: CGFloat.random(in: 0.7...1), blue: CGFloat.random(in: 0.7...1), alpha: CGFloat.random(in: 0...1))
             context.fillPath()
         }
     }
