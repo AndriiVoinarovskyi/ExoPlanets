@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailTableView.tableFooterView = UIView(frame: CGRect.zero)
-        orbitView.drawOrbit(eccentricity: item.eccentricity?.value ?? 0)
+        orbitView.drawOrbit(eccentricity: item.eccentricity?.value)
         
         
         
@@ -75,6 +75,7 @@ extension DetailViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath)
         tableView.rowHeight = 700
         cell.selectionStyle = .none
+        cell.backgroundColor = #colorLiteral(red: 0.0009274088661, green: 0.02324046195, blue: 0.2609408498, alpha: 1)
         if let cell = cell as? DetailInfoTransfer {
             print("Item = \(item)")
             cell.set(item: item)

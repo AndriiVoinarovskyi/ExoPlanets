@@ -30,21 +30,21 @@ class DetailTableViewCell: UITableViewCell, DetailInfoTransfer {
         if value != nil {
             return value!
         }
-        return ""
+        return "N/A"
     }
     
     func unwrapDouble (value: Double?) -> String {
         if value != nil {
             return "\(value!)"
         }
-        return ""
+        return "N/A"
     }
     
     func unwrapInt (value: Int?) -> String {
         if value != nil {
             return "\(value!)"
         }
-        return ""
+        return "N/A"
     }
 
     
