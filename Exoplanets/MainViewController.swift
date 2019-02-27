@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
         
         
         activityIndicator.hidesWhenStopped = true
+        retreavingDataLabel.text = "Please wait...\nRetreaving data..."
         retreavingDataLabel.isHidden = false
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()

@@ -92,7 +92,7 @@ class OrbitView: UIView {
     }
     
     func drawWarning(using context: CGContext) {
-        let text: NSString = "Warning! We haven't data about orbit."
+        let text: NSString = "Warning!\nWe haven't data about orbit."
         let side : CGFloat = bounds.size.width - 20
         let rect = CGRect(x: 20, y: 20, width: side, height: 100)
         let attr = [NSAttributedString.Key.font : UIFont.init(name: "Futura", size: 24)!,
