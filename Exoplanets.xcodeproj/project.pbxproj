@@ -22,6 +22,7 @@
 		B014EBFD221AF13500340079 /* TestSourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B014EBFC221AF13500340079 /* TestSourceData.swift */; };
 		B01926DD221EAE3E002B3009 /* TestDataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01926DC221EAE3E002B3009 /* TestDataSchema.swift */; };
 		B01926DF221EAE96002B3009 /* TestSourceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01926DE221EAE96002B3009 /* TestSourceDataService.swift */; };
+		B01AE9FB2227EE490045DAB1 /* Unwraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01AE9FA2227EE490045DAB1 /* Unwraping.swift */; };
 		B04F1DEA221C0EA300C2BDE8 /* Exoplanets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F1DE9221C0EA300C2BDE8 /* Exoplanets.swift */; };
 		B04F1DEC221C550300C2BDE8 /* SourceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F1DEB221C550300C2BDE8 /* SourceDataService.swift */; };
 		B064A2D82225662000B7956C /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064A2D72225662000B7956C /* DetailTableViewCell.swift */; };
@@ -67,6 +68,7 @@
 		B014EBFC221AF13500340079 /* TestSourceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSourceData.swift; sourceTree = "<group>"; };
 		B01926DC221EAE3E002B3009 /* TestDataSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataSchema.swift; sourceTree = "<group>"; };
 		B01926DE221EAE96002B3009 /* TestSourceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSourceDataService.swift; sourceTree = "<group>"; };
+		B01AE9FA2227EE490045DAB1 /* Unwraping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwraping.swift; sourceTree = "<group>"; };
 		B04F1DE9221C0EA300C2BDE8 /* Exoplanets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exoplanets.swift; sourceTree = "<group>"; };
 		B04F1DEB221C550300C2BDE8 /* SourceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDataService.swift; sourceTree = "<group>"; };
 		B064A2D72225662000B7956C /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		B008877F221AA43100D7B15F /* Exoplanets */ = {
 			isa = PBXGroup;
 			children = (
+				B01AE9FA2227EE490045DAB1 /* Unwraping.swift */,
 				B014EBFA221ADB6E00340079 /* Plan.rtf */,
 				B0088780221AA43100D7B15F /* AppDelegate.swift */,
 				B0088784221AA43100D7B15F /* Main.storyboard */,
@@ -302,6 +305,7 @@
 				B064A2D82225662000B7956C /* DetailTableViewCell.swift in Sources */,
 				B01926DD221EAE3E002B3009 /* TestDataSchema.swift in Sources */,
 				B0953E9F2225B97700D14CE0 /* OrbitView.swift in Sources */,
+				B01AE9FB2227EE490045DAB1 /* Unwraping.swift in Sources */,
 				B0088781221AA43100D7B15F /* AppDelegate.swift in Sources */,
 				B01926DF221EAE96002B3009 /* TestSourceDataService.swift in Sources */,
 				B04F1DEA221C0EA300C2BDE8 /* Exoplanets.swift in Sources */,

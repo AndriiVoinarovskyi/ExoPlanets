@@ -8,7 +8,7 @@
 
 import Foundation
 
-let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=100"
+let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=20"
 
 class SourceDataService {
     func load(complition : @escaping (Exoplanets)->()) {
@@ -25,8 +25,8 @@ class SourceDataService {
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data else { print("Wrong Data"); complition (Exoplanets()); return }
-                print("Data = \(data)")
-                print("JSON String: \(String(describing: String(data: data, encoding: .utf8)))")
+//                print("Data = \(data)")
+//                print("JSON String: \(String(describing: String(data: data, encoding: .utf8)))")
                 let decoder = JSONDecoder()
                 do {
                     let item = try decoder.decode(Exoplanets.self, from: data) // Error here

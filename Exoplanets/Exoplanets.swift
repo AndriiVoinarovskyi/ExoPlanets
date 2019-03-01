@@ -108,6 +108,19 @@ struct Coordinates : Decodable {
         epoch = 0
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tSystem: \(unwrap.unwrapString(value: system))
+        \tRight Ascension: \(unwrap.unwrapDouble(value: right_ascension))
+        \tRight Ascension Units: \(unwrap.unwrapString(value: right_ascension_units))
+        \tDeclination: \(unwrap.unwrapDouble(value: declination))
+        \tDeclination Units: \(unwrap.unwrapString(value: declination_units))
+        \tEpoch: \(unwrap.unwrapInt(value: epoch))
+        """
+        return text
+    }
+    
 }
 
 struct Mass : Decodable {
@@ -123,6 +136,18 @@ struct Mass : Decodable {
         error_max = -1.0 //1.5,
         error_min = -1.0 // 1.5,
         bibcode = "" //""
+    }
+    
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
     }
     
 }
@@ -142,6 +167,18 @@ struct Radius : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Inclination : Decodable {
@@ -159,6 +196,19 @@ struct Inclination : Decodable {
         error_min = -1.0 //0.5,
         bibcode = "" //""
     }
+    
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Semi_Major_Axis : Decodable {
@@ -176,6 +226,18 @@ struct Semi_Major_Axis : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Orbital_Period : Decodable {
@@ -193,6 +255,18 @@ struct Orbital_Period : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Eccentricity : Decodable {
@@ -208,6 +282,17 @@ struct Eccentricity : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Time_periastron : Decodable {
@@ -223,6 +308,17 @@ struct Time_periastron : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Velocity_semiamplitude : Decodable {
@@ -240,6 +336,18 @@ struct Velocity_semiamplitude : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Calculated_temperature : Decodable {
@@ -256,6 +364,19 @@ struct Calculated_temperature : Decodable {
         error_min = -1.0 //0.005,
         bibcode = "" //""
     }
+    
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Geometric_albedo : Decodable {
@@ -271,6 +392,17 @@ struct Geometric_albedo : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Surface_gravity : Decodable {
@@ -288,6 +420,18 @@ struct Surface_gravity : Decodable {
         bibcode = "" //""
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        \tValue: \(unwrap.unwrapDouble(value: value))
+        \tUnit: \(unwrap.unwrapString(value: unit))
+        \tError Max: \(unwrap.unwrapDouble(value: error_max))
+        \tError Min: \(unwrap.unwrapDouble(value: error_min))
+        \tBibcode: \(unwrap.unwrapString(value: bibcode))
+        """
+        return text
+    }
+
 }
 
 struct Planet : Decodable {
@@ -351,6 +495,49 @@ struct Planet : Decodable {
         parent_star = ""//"11 Com"
     }
     
+    func printInfo() -> String? {
+        let unwrap = Unwraping()
+        let text = """
+        Name: \(unwrap.unwrapString(value: name))
+        
+        Coordinates:
+        \(unwrap.unwrapString(value: self.coordinates?.printInfo()))
+        
+        Mass:
+        \(unwrap.unwrapString(value: self.mass?.printInfo()))
+        
+        Radius:
+        \(unwrap.unwrapString(value: self.radius?.printInfo()))
+        
+        Inclination:
+        \(unwrap.unwrapString(value: self.inclination?.printInfo()))
+        
+        Semi Major Axis:
+        \(unwrap.unwrapString(value: self.semi_major_axis?.printInfo()))
+        
+        Orbital Period:
+        \(unwrap.unwrapString(value: self.orbital_period?.printInfo()))
+        
+        Eccentricity:
+        \(unwrap.unwrapString(value: self.eccentricity?.printInfo()))
+        
+        Omega Angle:
+        \(unwrap.unwrapString(value: self.omega_angle?.printInfo()))
+        
+        Calculated Temperature:
+        \(unwrap.unwrapString(value: self.calculated_temperature?.printInfo()))
+        
+        Measured Temperature:
+        \(unwrap.unwrapString(value: self.measured_temperature?.printInfo()))
+        
+        Surface Gravity:
+        \(unwrap.unwrapString(value: self.surface_gravity?.printInfo()))
+        
+        Parent Star:  \(unwrap.unwrapString(value: self.parent_star))
+        """
+        return text
+    }
+
 }
 
 struct Exoplanets : Decodable {

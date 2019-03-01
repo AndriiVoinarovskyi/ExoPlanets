@@ -9,71 +9,28 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell, DetailInfoTransfer {
+    
+    let unwrap = Unwraping()
+    
+    var labelHeight : CGFloat = 0
+    
+    @IBOutlet weak var fullDetailInfo: UILabel!
+    
     func setDetails(item: Planet) {
-        nameTitleLabel.text = unwrapString(value: item.name)
-        systemTitleLabel.text = unwrapString(value: item.coordinates?.system)
-        rightAscensionTitleLabel.text = unwrapDouble(value: item.coordinates?.right_ascension)
-        rightAscensionUnitTitleLabel.text = unwrapString(value: item.coordinates?.right_ascension_units)
-        declinationTitleLabel.text = unwrapDouble(value: item.coordinates?.declination)
-        declinationUnitsTitleLabel.text = unwrapString(value: item.coordinates?.declination_units)
-        epochTitleLabel.text = unwrapInt(value: item.coordinates?.epoch)
-        massTitleLabel.text = unwrapDouble(value: item.mass?.value)
-        radiusTitleLabel.text = unwrapDouble(value: item.radius?.value)
-        eccentricityTitleLabel.text = unwrapDouble(value: item.eccentricity?.value)
-        //        if item.coordinates?.epoch != nil {
-        //            epochTitleLabel.text = "\(item.coordinates!.epoch!)"
-        //        }
+        fullDetailInfo.text = item.printInfo()
+        fullDetailInfo.numberOfLines = 0
+        fullDetailInfo.lineBreakMode = .byWordWrapping
+        fullDetailInfo.font = UIFont(name: "Futura", size: 17)
+        fullDetailInfo.sizeToFit()
+        labelHeight = fullDetailInfo.frame.height
+        print("Label Heght = \(labelHeight)")
+        
         
     }
     
-    func unwrapString (value: String?) -> String {
-        if value != nil {
-            return value!
-        }
-        return "N/A"
-    }
     
-    func unwrapDouble (value: Double?) -> String {
-        if value != nil {
-            return "\(value!)"
-        }
-        return "N/A"
-    }
     
-    func unwrapInt (value: Int?) -> String {
-        if value != nil {
-            return "\(value!)"
-        }
-        return "N/A"
-    }
 
-    
-    
-    @IBOutlet weak var nameTitleLabel: UILabel!
-    
-    @IBOutlet weak var systemTitleLabel: UILabel!
-    
-    @IBOutlet weak var rightAscensionTitleLabel: UILabel!
-    
-    @IBOutlet weak var rightAscensionUnitTitleLabel: UILabel!
-    
-    @IBOutlet weak var declinationTitleLabel: UILabel!
-    
-    @IBOutlet weak var declinationUnitsTitleLabel: UILabel!
-    
-    @IBOutlet weak var epochTitleLabel: UILabel!
-    
-    @IBOutlet weak var massTitleLabel: UILabel!
-    
-    @IBOutlet weak var radiusTitleLabel: UILabel!
-    
-    @IBOutlet weak var eccentricityTitleLabel: UILabel!
-    
-    
-    
-    
-    
-    
     
     
     

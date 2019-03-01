@@ -24,6 +24,8 @@ class OrbitView: UIView {
     var eccentricity : Double? = Double()
     var eccentricityCGFloat : CGFloat = CGFloat()
     
+    
+    
     override func draw(_ rect: CGRect) {
         print("Start Draw")
         guard let currentContext = UIGraphicsGetCurrentContext() else {
