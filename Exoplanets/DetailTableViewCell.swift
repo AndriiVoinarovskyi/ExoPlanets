@@ -23,7 +23,7 @@ class DetailTableViewCell: UITableViewCell, DetailInfoTransfer {
         fullDetailInfo.font = UIFont(name: "Futura", size: 17)
         fullDetailInfo.sizeToFit()
         labelHeight = fullDetailInfo.frame.height
-        print("Label Heght = \(labelHeight)")
+//        print("Label Heght = \(labelHeight)")
         
         
     }

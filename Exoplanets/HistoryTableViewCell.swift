@@ -14,8 +14,8 @@ class HistoryTableViewCell: UITableViewCell, IndexTransition {
 //        label.text = value.txt
 //    }
 
-        func setTitleByIndex(value: Planet) {
-        label.text = value.name
+        func setTitleByIndex(value: String) {
+        label.text = value
     }
 
     

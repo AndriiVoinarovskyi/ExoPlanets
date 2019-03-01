@@ -10,13 +10,13 @@ import UIKit
 
 protocol IndexTransition {
     //    func setTitleByIndex (value : Rate)
-    func setTitleByIndex (value : Planet)
+    func setTitleByIndex (value : String)
     
 }
 
 extension IndexTransition {
     //    func set (value: Rate) {
-    func set (value: Planet) {
+    func set (value: String) {
         setTitleByIndex(value: value)
     }
 }
@@ -28,10 +28,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var retreavingDataLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     
+//    let dataService: SourceDataService = SourceDataService()
+//    var data = Exoplanets()
     
+    let dataNameService = SourceDataServiceNamesRespond()
+    var namesArray : [String] = []
     
-    let dataService: SourceDataService = SourceDataService()
-    var data = Exoplanets()
     
     //    let dataService: TestSourceDataService = TestSourceDataService()
     //    var data : [Rate] = []
@@ -53,10 +55,10 @@ class MainViewController: UIViewController {
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
         
         
-        self.dataService.load(complition: { (data) in
-            self.data = data
-            self.count = data.results?.count ?? -1
-            print("Count = \(self.data.count ?? -1)")
+        self.dataNameService.load(complition: { (data) in
+            self.namesArray = data
+            self.count = self.namesArray.count
+            print("Count = \(self.count)")
             self.mainTableView.reloadData()
             self.activityIndicator.stopAnimating()
             self.retreavingDataLabel.isHidden = true
@@ -71,7 +73,7 @@ class MainViewController: UIViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = mainTableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! DetailViewController
-                dvc.item = data.results![indexPath.row]
+                dvc.itemName = namesArray[indexPath.row]
             }
         }
     }
@@ -101,7 +103,7 @@ extension MainViewController : UITableViewDataSource {
         }
         cell.selectionStyle = .none
         if let cell = cell as? IndexTransition {
-            let value = self.data.results![indexPath.row]
+            let value = self.namesArray[indexPath.row]
             //            let value = self.data[indexPath.row]
             
             print ("Cell title \(value)")
