@@ -9,9 +9,7 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell, DetailInfoTransfer {
-    
-    let unwrap = Unwraping()
-    
+
     var labelHeight : CGFloat = 0
     
     @IBOutlet weak var fullDetailInfo: UILabel!
@@ -23,21 +21,8 @@ class DetailTableViewCell: UITableViewCell, DetailInfoTransfer {
         fullDetailInfo.font = UIFont(name: "Futura", size: 17)
         fullDetailInfo.sizeToFit()
         labelHeight = fullDetailInfo.frame.height
-//        print("Label Heght = \(labelHeight)")
-        
-        
     }
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

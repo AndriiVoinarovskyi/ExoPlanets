@@ -43,7 +43,7 @@ class SourceDataServicePlanetRespond {
                     let item = try decoder.decode(Planet.self, from: data)
                     
                     complition(item)
-                } catch { print(error)}
+                } catch { print(error); complition (Planet()); return }
                 
                 //                print("Load Data: next = \(item?.next ?? "")")
             }

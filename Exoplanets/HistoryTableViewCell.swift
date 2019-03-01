@@ -10,19 +10,11 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell, IndexTransition {
 
-//    func setTitleByIndex(value: Rate) {
-//        label.text = value.txt
-//    }
-
-        func setTitleByIndex(value: String) {
-        label.text = value
-    }
-
-    
-
     @IBOutlet weak var label: UILabel!
     
-    
+    func setTitleByIndex(value: String) {
+        label.text = value
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +23,6 @@ class HistoryTableViewCell: UITableViewCell, IndexTransition {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

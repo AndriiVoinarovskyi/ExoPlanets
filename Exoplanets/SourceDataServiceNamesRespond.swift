@@ -38,7 +38,7 @@ class SourceDataServiceNamesRespond {
                     }
                     
                     complition(self.namesArray)
-                } catch { print(error)}
+                } catch { print(error); complition([]); return }
                 
                 //                print("Load Data: next = \(item?.next ?? "")")
             }

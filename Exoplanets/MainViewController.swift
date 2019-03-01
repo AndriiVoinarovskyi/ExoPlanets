@@ -21,7 +21,7 @@ extension IndexTransition {
     }
 }
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var mainTableView: MainTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -33,17 +33,18 @@ class MainViewController: UIViewController {
     
     let dataNameService = SourceDataServiceNamesRespond()
     var namesArray : [String] = []
-    
-    
-    //    let dataService: TestSourceDataService = TestSourceDataService()
-    //    var data : [Rate] = []
-    
+    var searchNames : [String] = []
+    var recentRequests : [String] = []
+    let recentRequestsCount = 15
+    var searchMode : Bool = false
     var count = 0
+    let recentRequestsKey = "recentRequestsKey"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Space Odyssey"
-        
+        recentRequests = UserDefaults.standard.stringArray(forKey: recentRequestsKey) ?? []
+        print("recentRequests =\(recentRequests)")
         
         activityIndicator.hidesWhenStopped = true
         retreavingDataLabel.text = "Please wait...\nRetreaving data..."
@@ -51,9 +52,7 @@ class MainViewController: UIViewController {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
-        
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
-        
         
         self.dataNameService.load(complition: { (data) in
             self.namesArray = data
@@ -64,19 +63,60 @@ class MainViewController: UIViewController {
             self.retreavingDataLabel.isHidden = true
             print("Screen reloaded")
         })
-        
-        
-        // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        print("View did Appear")
+        print("Search Mode = \(searchMode)")
+        mainTableView.reloadData()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = mainTableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! DetailViewController
-                dvc.itemName = namesArray[indexPath.row]
+                var item = ""
+                if searchMode == false {
+                    item = recentRequests.reversed()[indexPath.row]
+                } else {
+                    item = searchNames[indexPath.row]
+                }
+                dvc.itemName = item
+                
+                if recentRequests.contains(item) {
+                    recentRequests.removeAll(where: { $0 == item })
+                }
+                if recentRequests.count == recentRequestsCount {
+                    recentRequests.removeFirst()
+                }
+                recentRequests.append(item)
             }
         }
     }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchMode = true
+        print("Begin Changing")
+        guard let searchText = searchBar.text else { print ("Return"); searchMode = false; return }
+        print("Search text = \(searchText)")
+        searchNames = namesArray.filter { $0.prefix(searchText.count) == searchText}
+        mainTableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("Stop editing")
+        UserDefaults.standard.set(recentRequests, forKey: recentRequestsKey)
+        searchBar.text = ""
+        
+        searchMode = false
+        mainTableView.reloadData()
+    }
+    
+    
     /*
      // MARK: - Navigation
      
@@ -91,6 +131,12 @@ class MainViewController: UIViewController {
 
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchMode == true {
+            count = searchNames.count
+        } else {
+            count = recentRequests.count
+        }
+        
         return count
     }
     
@@ -103,11 +149,21 @@ extension MainViewController : UITableViewDataSource {
         }
         cell.selectionStyle = .none
         if let cell = cell as? IndexTransition {
-            let value = self.namesArray[indexPath.row]
-            //            let value = self.data[indexPath.row]
             
-            print ("Cell title \(value)")
-            cell.set(value: value)
+            if searchMode == true {
+                let value = self.searchNames[indexPath.row]
+                //            let value = self.data[indexPath.row]
+                
+                print ("Cell title \(value)")
+                cell.set(value: value)
+
+            } else {
+                let value = self.recentRequests.reversed()[indexPath.row]
+                //            let value = self.data[indexPath.row]
+                
+                print ("Cell title \(value)")
+                cell.set(value: value)
+            }
         }
         
         return cell 

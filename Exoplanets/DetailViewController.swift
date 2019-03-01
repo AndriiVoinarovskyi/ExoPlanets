@@ -20,35 +20,17 @@ extension DetailInfoTransfer {
 
 class DetailViewController: UIViewController {
     
-    //    func setTitleByIndex(value: Rate) {
-    //        self.label.text = "Date: \(value.exchangedate) \(value.txt) = \(value.rate)"
-    //    }
-    
-    //        func setTitleByIndex(value: Planet) {
-    //            self.label.text = "Name: \(value.name ?? "") mass = \(value.mass?.value ?? -1.0)"
-    //    }
-    
-    
-    
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var retreavingDataLabel: UILabel!
     @IBOutlet weak var orbitView: OrbitView!
     
-    //    var item = Rate()
     var item = Planet()
     var itemName : String = ""
     let dataPlanetService = SourceDataServicePlanetRespond()
     
-    //        @IBOutlet weak var backButton: UIButton!
-    //
-    //        @IBAction func backButton(_ sender: Any) {
-    //            self.show(MainViewController(), sender: (Any).self)
-    //    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.title = itemName
         detailTableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -58,36 +40,16 @@ class DetailViewController: UIViewController {
         retreavingDataLabel.isHidden = false
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-
+        
         
         self.dataPlanetService.load(linkParameter: itemName, complition: { (data) in
             self.item = data
-            //            print("Count = \(self.data.count ?? -1)")
             self.detailTableView.reloadData()
             self.activityIndicator.stopAnimating()
             self.retreavingDataLabel.isHidden = true
             self.orbitView.contentMode = .redraw
             self.orbitView.drawOrbit(eccentricity: self.item.eccentricity?.value)
-//            self.activityIndicator.stopAnimating()
-//            self.retreavingDataLabel.isHidden = true
-            //            print("Screen reloaded")
         })
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     /*

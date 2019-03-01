@@ -17,9 +17,6 @@
 		B00887B2221AA51100D7B15F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00887B1221AA51100D7B15F /* MainViewController.swift */; };
 		B014EBF9221AC0D100340079 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B014EBF8221AC0D100340079 /* HistoryTableViewCell.swift */; };
 		B014EBFB221ADB6E00340079 /* Plan.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B014EBFA221ADB6E00340079 /* Plan.rtf */; };
-		B014EBFD221AF13500340079 /* TestSourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B014EBFC221AF13500340079 /* TestSourceData.swift */; };
-		B01926DD221EAE3E002B3009 /* TestDataSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01926DC221EAE3E002B3009 /* TestDataSchema.swift */; };
-		B01926DF221EAE96002B3009 /* TestSourceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01926DE221EAE96002B3009 /* TestSourceDataService.swift */; };
 		B01AE9FB2227EE490045DAB1 /* Unwraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01AE9FA2227EE490045DAB1 /* Unwraping.swift */; };
 		B04F1DEA221C0EA300C2BDE8 /* Exoplanets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F1DE9221C0EA300C2BDE8 /* Exoplanets.swift */; };
 		B04F1DEC221C550300C2BDE8 /* SourceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F1DEB221C550300C2BDE8 /* SourceDataService.swift */; };
@@ -65,9 +62,6 @@
 		B00887B1221AA51100D7B15F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B014EBF8221AC0D100340079 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B014EBFA221ADB6E00340079 /* Plan.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Plan.rtf; sourceTree = "<group>"; };
-		B014EBFC221AF13500340079 /* TestSourceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSourceData.swift; sourceTree = "<group>"; };
-		B01926DC221EAE3E002B3009 /* TestDataSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataSchema.swift; sourceTree = "<group>"; };
-		B01926DE221EAE96002B3009 /* TestSourceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSourceDataService.swift; sourceTree = "<group>"; };
 		B01AE9FA2227EE490045DAB1 /* Unwraping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwraping.swift; sourceTree = "<group>"; };
 		B04F1DE9221C0EA300C2BDE8 /* Exoplanets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exoplanets.swift; sourceTree = "<group>"; };
 		B04F1DEB221C550300C2BDE8 /* SourceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDataService.swift; sourceTree = "<group>"; };
@@ -140,13 +134,10 @@
 				B0F98B8B22296610003B3AF2 /* DetailViewController.swift */,
 				B014EBF8221AC0D100340079 /* HistoryTableViewCell.swift */,
 				B064A2D72225662000B7956C /* DetailTableViewCell.swift */,
-				B014EBFC221AF13500340079 /* TestSourceData.swift */,
 				B04F1DE9221C0EA300C2BDE8 /* Exoplanets.swift */,
 				B04F1DEB221C550300C2BDE8 /* SourceDataService.swift */,
 				B0F98B8922296200003B3AF2 /* SourceDataServiceNamesRespond.swift */,
 				B0F98B8D222967C3003B3AF2 /* SourceDataServicePlanetRespond.swift */,
-				B01926DC221EAE3E002B3009 /* TestDataSchema.swift */,
-				B01926DE221EAE96002B3009 /* TestSourceDataService.swift */,
 				B0953E9E2225B97700D14CE0 /* OrbitView.swift */,
 			);
 			path = Exoplanets;
@@ -307,15 +298,12 @@
 				B0F98B8A22296200003B3AF2 /* SourceDataServiceNamesRespond.swift in Sources */,
 				B00887B2221AA51100D7B15F /* MainViewController.swift in Sources */,
 				B0088789221AA43100D7B15F /* Exoplanets.xcdatamodeld in Sources */,
-				B014EBFD221AF13500340079 /* TestSourceData.swift in Sources */,
 				B0D5D52C2229860600BBEB5A /* MainTableView.swift in Sources */,
 				B0F98B8C22296610003B3AF2 /* DetailViewController.swift in Sources */,
 				B064A2D82225662000B7956C /* DetailTableViewCell.swift in Sources */,
-				B01926DD221EAE3E002B3009 /* TestDataSchema.swift in Sources */,
 				B0953E9F2225B97700D14CE0 /* OrbitView.swift in Sources */,
 				B01AE9FB2227EE490045DAB1 /* Unwraping.swift in Sources */,
 				B0088781221AA43100D7B15F /* AppDelegate.swift in Sources */,
-				B01926DF221EAE96002B3009 /* TestSourceDataService.swift in Sources */,
 				B0F98B8E222967C3003B3AF2 /* SourceDataServicePlanetRespond.swift in Sources */,
 				B04F1DEA221C0EA300C2BDE8 /* Exoplanets.swift in Sources */,
 			);

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="70" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="5Dv-RG-ZCA" id="G9A-sY-00k"/>
+                                    <outlet property="delegate" destination="5Dv-RG-ZCA" id="Xhy-nr-Rpi"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qxv-Ew-QKo" customClass="MainTableView" customModule="Exoplanets" customModuleProvider="target">
