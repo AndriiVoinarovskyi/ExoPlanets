@@ -11,7 +11,7 @@ import Foundation
 
 
 class SourceDataServiceNamesRespond {
-    let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=200"
+    let baseLink = "https://api.arcsecond.io/exoplanets/?page=1&page_size=800"
     var namesArray : [String] = []
     func load(complition : @escaping ([String])->()) {
         guard let url = URL(string: baseLink) else {

@@ -9,13 +9,11 @@
 import UIKit
 
 protocol IndexTransition {
-    //    func setTitleByIndex (value : Rate)
     func setTitleByIndex (value : String)
     
 }
 
 extension IndexTransition {
-    //    func set (value: Rate) {
     func set (value: String) {
         setTitleByIndex(value: value)
     }
@@ -27,9 +25,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var retreavingDataLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-//    let dataService: SourceDataService = SourceDataService()
-//    var data = Exoplanets()
+    @IBOutlet weak var viewMode: UILabel!
     
     let dataNameService = SourceDataServiceNamesRespond()
     var namesArray : [String] = []
@@ -39,42 +35,54 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     var searchMode : Bool = false
     var count = 0
     let recentRequestsKey = "recentRequestsKey"
+    var searchText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Space Odyssey"
+        
+        if searchMode == true {
+            viewMode.text = "Search List"
+            activityIndicator.hidesWhenStopped = true
+        } else {
+            viewMode.text = "Recent requests"
+            retreavingDataLabel.isHidden = true
+            activityIndicator.isHidden = true
+        }
+        activityIndicator.startAnimating()
+        print("Begin loading data")
+        self.dataNameService.load(complition: { (data) in
+            print("begin handling data")
+            self.namesArray = data
+            self.activityIndicator.stopAnimating()
+            self.retreavingDataLabel.isHidden = !self.activityIndicator.isAnimating
+            self.activityIndicator.isHidden = !self.activityIndicator.isAnimating
+            self.searchNames = self.namesArray.filter { $0.prefix(self.searchText.count) == self.searchText}
+            print("SearchNames = \(self.searchNames)")
+            self.mainTableView.reloadData()
+            print("Screen reloaded")
+            print("Search mode == \(self.searchMode)")
+        })
+        
+        
         recentRequests = UserDefaults.standard.stringArray(forKey: recentRequestsKey) ?? []
         print("recentRequests =\(recentRequests)")
-        
-        activityIndicator.hidesWhenStopped = true
-        retreavingDataLabel.text = "Please wait...\nRetreaving data..."
-        retreavingDataLabel.isHidden = false
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        
         mainTableView.tableFooterView = UIView(frame: CGRect.zero)
-        
-        self.dataNameService.load(complition: { (data) in
-            self.namesArray = data
-            self.count = self.namesArray.count
-            print("Count = \(self.count)")
-            self.mainTableView.reloadData()
-            self.activityIndicator.stopAnimating()
-            self.retreavingDataLabel.isHidden = true
-            print("Screen reloaded")
-        })
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        print("View did Appear")
-        print("Search Mode = \(searchMode)")
+        print("View will Appear")
+        print("View will appear Search Mode = \(searchMode)")
+        viewMode.text = (searchMode == true ? "Search List" : "Recent requests")
         mainTableView.reloadData()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Tap cell Search Mode = \(searchMode)")
         if segue.identifier == "detailSegue" {
             if let indexPath = mainTableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! DetailViewController
@@ -94,14 +102,19 @@ class MainViewController: UIViewController, UISearchBarDelegate {
                 }
                 recentRequests.append(item)
             }
+            print("Taped cell Search Mode = \(searchMode)")
         }
     }
     
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchMode = true
+        retreavingDataLabel.text = "Please wait...\nRetreaving data..."
+        retreavingDataLabel.isHidden = !activityIndicator.isAnimating
+        activityIndicator.isHidden = !activityIndicator.isAnimating
+        viewMode.text = (searchMode == true ? "Search List" : "Recent requests")
         print("Begin Changing")
-        guard let searchText = searchBar.text else { print ("Return"); searchMode = false; return }
+        print("begin filtering")
+        self.searchText = searchText
         print("Search text = \(searchText)")
         searchNames = namesArray.filter { $0.prefix(searchText.count) == searchText}
         mainTableView.reloadData()
@@ -111,7 +124,6 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         print("Stop editing")
         UserDefaults.standard.set(recentRequests, forKey: recentRequestsKey)
         searchBar.text = ""
-        
         searchMode = false
         mainTableView.reloadData()
     }
@@ -136,7 +148,6 @@ extension MainViewController : UITableViewDataSource {
         } else {
             count = recentRequests.count
         }
-        
         return count
     }
     
@@ -152,16 +163,11 @@ extension MainViewController : UITableViewDataSource {
             
             if searchMode == true {
                 let value = self.searchNames[indexPath.row]
-                //            let value = self.data[indexPath.row]
-                
-                print ("Cell title \(value)")
+                print ("Cell search title \(value)")
                 cell.set(value: value)
-
             } else {
                 let value = self.recentRequests.reversed()[indexPath.row]
-                //            let value = self.data[indexPath.row]
-                
-                print ("Cell title \(value)")
+                print ("Cell recentrequests title \(value)")
                 cell.set(value: value)
             }
         }
