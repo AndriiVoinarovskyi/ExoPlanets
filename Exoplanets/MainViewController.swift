@@ -49,21 +49,26 @@ class MainViewController: UIViewController, UISearchBarDelegate {
             retreavingDataLabel.isHidden = true
             activityIndicator.isHidden = true
         }
+        print("ActivityIndicator Start Animating")
         activityIndicator.startAnimating()
         print("Begin loading data")
+        DispatchQueue.global().async {
         self.dataNameService.load(complition: { (data) in
             print("begin handling data")
             self.namesArray = data
-            self.activityIndicator.stopAnimating()
-            self.retreavingDataLabel.isHidden = !self.activityIndicator.isAnimating
-            self.activityIndicator.isHidden = !self.activityIndicator.isAnimating
+            print("ActivityIndicator Stop Animating")
             self.searchNames = self.namesArray.filter { $0.prefix(self.searchText.count) == self.searchText}
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.retreavingDataLabel.isHidden = !self.activityIndicator.isAnimating
+                self.activityIndicator.isHidden = !self.activityIndicator.isAnimating
+                self.mainTableView.reloadData()
+            }
             print("SearchNames = \(self.searchNames)")
-            self.mainTableView.reloadData()
             print("Screen reloaded")
             print("Search mode == \(self.searchMode)")
         })
-        
+        }
         
         recentRequests = UserDefaults.standard.stringArray(forKey: recentRequestsKey) ?? []
         print("recentRequests =\(recentRequests)")
