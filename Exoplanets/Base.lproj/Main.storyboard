@@ -181,18 +181,20 @@
                             <constraint firstItem="Gc4-T3-JMM" firstAttribute="height" secondItem="uwK-co-nej" secondAttribute="height" id="2Dk-vJ-TAS"/>
                             <constraint firstItem="uwK-co-nej" firstAttribute="trailing" secondItem="vns-gc-xtM" secondAttribute="trailing" id="2Kl-ap-MHG"/>
                             <constraint firstItem="mYo-Bw-yz7" firstAttribute="bottom" secondItem="uwK-co-nej" secondAttribute="bottom" constant="6" id="41t-R2-NVF"/>
+                            <constraint firstItem="Gc4-T3-JMM" firstAttribute="top" secondItem="uwK-co-nej" secondAttribute="top" id="5R2-P7-HzV"/>
                             <constraint firstItem="mYo-Bw-yz7" firstAttribute="top" secondItem="G0u-jL-UAf" secondAttribute="bottom" constant="6" id="68T-le-wVZ"/>
-                            <constraint firstItem="Gc4-T3-JMM" firstAttribute="centerX" secondItem="uwK-co-nej" secondAttribute="centerX" id="8Tp-oI-2AC"/>
                             <constraint firstItem="Gc4-T3-JMM" firstAttribute="width" secondItem="uwK-co-nej" secondAttribute="width" id="Ib8-xJ-whl"/>
+                            <constraint firstItem="Gc4-T3-JMM" firstAttribute="trailing" secondItem="uwK-co-nej" secondAttribute="trailing" id="NO7-dG-26E"/>
                             <constraint firstItem="mYo-Bw-yz7" firstAttribute="leading" secondItem="uwK-co-nej" secondAttribute="leading" id="Om1-2v-HTI"/>
                             <constraint firstItem="vns-gc-xtM" firstAttribute="width" secondItem="uwK-co-nej" secondAttribute="width" id="RW0-T5-WmN"/>
                             <constraint firstItem="mYo-Bw-yz7" firstAttribute="trailing" secondItem="uwK-co-nej" secondAttribute="trailing" id="T56-YD-kRt"/>
                             <constraint firstItem="uwK-co-nej" firstAttribute="trailing" secondItem="G0u-jL-UAf" secondAttribute="trailing" id="VfT-mS-lik"/>
                             <constraint firstItem="Gc4-T3-JMM" firstAttribute="top" secondItem="vns-gc-xtM" secondAttribute="top" multiplier="0.3" id="WbE-U8-hCr"/>
-                            <constraint firstItem="Gc4-T3-JMM" firstAttribute="centerY" secondItem="uwK-co-nej" secondAttribute="centerY" id="XGu-qN-rmI"/>
                             <constraint firstItem="vns-gc-xtM" firstAttribute="leading" secondItem="uwK-co-nej" secondAttribute="leading" id="Z96-ID-uc6"/>
+                            <constraint firstItem="Gc4-T3-JMM" firstAttribute="leading" secondItem="uwK-co-nej" secondAttribute="leading" id="haY-Lr-6YB"/>
                             <constraint firstItem="uwK-co-nej" firstAttribute="leading" secondItem="G0u-jL-UAf" secondAttribute="leading" id="kVd-G0-Lqg"/>
                             <constraint firstItem="mYo-Bw-yz7" firstAttribute="height" secondItem="uwK-co-nej" secondAttribute="height" multiplier="0.5" id="mbV-0Y-JOa"/>
+                            <constraint firstItem="Gc4-T3-JMM" firstAttribute="bottom" secondItem="uwK-co-nej" secondAttribute="bottom" id="nmb-Ni-1iT"/>
                             <constraint firstItem="G0u-jL-UAf" firstAttribute="top" secondItem="uwK-co-nej" secondAttribute="top" constant="6" id="vjI-UN-ZmI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uwK-co-nej"/>

@@ -19,6 +19,7 @@ class SourceDataServiceNamesRespond {
     
     func loadPage(link: String?, complition : @escaping (([String], String?))->()) {
         print("Start page loading")
+        print("Link = \(link)")
         guard let url = URL(string: link ?? "N/A") else {
             print("Wrong URL")
             complition (([], ""))
