@@ -48,7 +48,7 @@ class OrbitView: UIView {
         setNeedsDisplay()
         self.eccentricity = eccentricity
     }
-    
+     
     func randomPoint(using context: CGContext) -> CGPoint {
         let point = CGPoint(x: CGFloat.random(in: 0...bounds.size.width), y: CGFloat.random(in: 0...bounds.size.height))
         return point
